@@ -33,7 +33,7 @@ class SourceHeadlines extends React.Component {
       componentDidMount(){
         var rect = this.headlines.current.getBoundingClientRect();
         this.setState({top: rect.top});
-        const scrollPosition = this.headlines.current.getBoundingClientRect().top + window.scrollY;
+        const scrollPosition = this.headlines.current.getBoundingClientRect().top + window.scrollY -120;
         Scroll.animateScroll.scrollTo(scrollPosition);
         document.addEventListener('scroll', this.handleScroll);
 

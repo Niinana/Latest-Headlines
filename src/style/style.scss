@@ -14,31 +14,30 @@ body{
 a{
     color: #000;
     text-decoration: none;
+    cursor: pointer;
+    :hover *{
+        opacity:0.5;
+    }
 }
-a:hover *{
-    opacity:0.5;
-}
+
 
 /* MAIN */
 
 .main .header{
     text-align: center;
-}
-
-.main .header h1{
-    font-family: 'Lobster Two', cursive;
-    font-size:40px;
-}
-
-.main .header img{
-    width: 150px;
-}
-
-.main .header hr{
-    width: 30%;
-    border-width: 1px;
-    border-style: solid;
-    border-color: #000;
+    h1{
+        font-family: 'Lobster Two', cursive;
+        font-size:40px;
+    }
+    img{
+        width: 150px;
+    }
+    hr{
+        width: 30%;
+        border-width: 1px;
+        border-style: solid;
+        border-color: #000;
+    }
 }
 
 /* LATEST */
@@ -50,58 +49,61 @@ a:hover *{
     grid-template-columns: 2fr 1fr;
 }
 
-.latest .section-1 p.desc, .latest .section-2 p.desc{
-    display: none;
-}
+.latest .section-1{
+    .hl-img{
+        height:50vh;
+        width: 100%;
+        background-size: cover;
+        background-position: center;
+    }
+    p.desc{
+        display: none;
+    }
+} 
 
-.latest .section-1 .hl-img{
-    height:50vh;
-    width: 100%;
-    background-size: cover;
-    background-position: center;
-}
-
-.latest .section-2 .headline{
-    border-bottom: solid;
-    border-bottom-width:2px;
-}
-
-.latest .section-2 .headline:last-child{
-    border-bottom: none;
-}
-
-.latest .section-2 .hl-img{
-    display: none;
-}
+.latest .section-2{
+    .headline{
+        border-bottom: solid;
+        border-bottom-width:2px;
+    }
+    .headline:last-child{
+        border-bottom: none;
+    }
+    .hl-img, p.desc{
+        display: none;
+    }
+} 
 
 .latest .section-3{
     grid-column: span 2;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-gap: 35px;
+    .headline a div{
+        display:grid;
+        grid-template-areas: 
+        "image  "
+        "sd "
+        "title  "
+        "desc  ";
+        .hl-img{
+            width: 100%;
+            height: 20vh;
+        }
+        .source-date{
+            grid-area: sd;
+        }
+        h2{
+            grid-area: title;
+        }
+        p.desc{
+            grid-area: desc;
+        }
+    }
 }
 
-.latest .section-3 .headline a div{
-    display:grid;
-    grid-template-areas: 
-    "image  "
-    "sd "
-    "title  "
-    "desc  "
-}
-.latest .section-3 .headline a div .hl-img{
-    width: 100%;
-    height: 20vh;
-}
-.latest .section-3 .headline a div .source-date{
-    grid-area: sd;
-}
-.latest .section-3 .headline a div h2{
-    grid-area: title;
-}
-.latest .section-3 .headline a div p.desc{
-    grid-area: desc;
-}
+
+
 
 /* ALL SOURCES */
 
@@ -112,6 +114,7 @@ a:hover *{
 .all-sources h1{
     font-family: 'Lobster Two', cursive;
     font-size: 30px;
+    margin-bottom: 55px;
 }
 
 /* SOURCE HEADLINES */
@@ -124,41 +127,51 @@ a:hover *{
     width: 84%;
     display: grid;
     grid-template-columns: 1fr 1fr;
-}
-
-.source-headlines .top-bar img{
-    height: 55px;
-    margin: 30px 0px 25px 0px;
-}
-
-.source-headlines .top-bar .close{
-    justify-self: end;
-    display: grid;
-    height: 100%;
-    align-content: center;
-}
-
-.source-headlines .top-bar .close a{
-    font-size: 45px;
-    font-weight: bold;
-}
-
-.source-headlines .top-bar svg{
-    bottom: 0;
+    img{
+        height: 55px;
+        margin: 30px 0px 25px 0px;
+    }
+    svg{
+        bottom: 0;
+    }
+    .close{
+        justify-self: end;
+        display: grid;
+        height: 100%;
+        align-content: center;
+        a{
+            font-size: 45px;
+            font-weight: bold;
+        }
+    }
 }
 
 
 /* HEADLINE */
+
+.headline h2{
+    margin: 20px 0 10px 0;
+}
+
+.headline .hl-img{
+    background-size: cover;
+    background-position: center;
+}
+
 .headline .source-date{
     display: grid;
     grid-template-columns: 1fr 1fr;
+    p{
+        margin: 10px 0;
+    }
+    .source{
+        font-weight: bold;
+    }
+    .date{
+        justify-self: end;
+    }
 }
-.headline .source-date .source{
-    font-weight: bold;
-}
-.headline .source-date .date{
-    justify-self: end;
-}
+
 
 /* FOOTER */
 
@@ -176,24 +189,6 @@ a:hover *{
 
 
 
-/*----*/
-
-.latest img{
-    width: 10%;
-}
-
-
-
-.hl-img{
-    background-size: cover;
-    background-position: center;
-}
-
-
-
-.headline a{
-    cursor: pointer;
-}
 
 
 

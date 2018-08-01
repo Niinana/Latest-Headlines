@@ -20,7 +20,7 @@ class App extends React.Component {
         latest.sort((a,b)=>{
           if(a.publishedAt < b.publishedAt) return 1;
           return -1;
-        })
+        })    
         return latest.slice(0, 8);
       }
 
