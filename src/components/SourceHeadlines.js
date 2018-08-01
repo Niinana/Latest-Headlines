@@ -3,11 +3,17 @@ import { Line } from 'rc-progress';
 import {Link} from 'react-router-dom';
 import Scroll from 'react-scroll';
 import Headline from './Headline';
+import PropTypes from 'prop-types';
 
 class SourceHeadlines extends React.Component {
 
     state={
         progress: 0
+    }
+
+    static propTypes = {
+      headlines: PropTypes.array,
+      history: PropTypes.object
     }
 
     headlines = React.createRef();

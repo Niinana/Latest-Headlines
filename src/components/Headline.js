@@ -1,8 +1,12 @@
 import React from 'react';
 import {formatDate} from '../helpers';
+import PropTypes from 'prop-types';
 
 class Headline extends React.Component {
 
+  static propTypes = {
+    headline: PropTypes.object,
+  }
 
   setImage = (image) => {
     if(image){

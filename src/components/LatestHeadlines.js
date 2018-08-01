@@ -1,8 +1,12 @@
 import React from 'react';
 import Headline from './Headline';
+import PropTypes from 'prop-types';
 
 class LatestHeadlines extends React.Component {
 
+    static propTypes = {
+        headlines: PropTypes.array
+      }
 
   render() {
     return(
