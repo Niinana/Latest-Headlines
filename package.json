@@ -1,0 +1,32 @@
+{
+  "name": "top-headlines",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "concurrently": "^3.6.0",
+    "html-react-parser": "^0.4.6",
+    "national-geographic-api": "^2.0.2",
+    "node-sass": "^4.9.1",
+    "postcss": "^6.0.23",
+    "postcss-cli": "^5.0.1",
+    "rc-progress": "^2.2.5",
+    "react": "^16.4.1",
+    "react-dom": "^16.4.1",
+    "react-fontawesome": "^1.6.1",
+    "react-helmet": "^5.2.0",
+    "react-onclickoutside": "^6.7.1",
+    "react-router-dom": "^4.3.1",
+    "react-scripts": "1.1.4",
+    "react-scroll": "^1.7.10",
+    "react-spinners": "^0.3.2"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject",
+    "watch": "concurrently \"npm run start\" \"npm run scss\" \"npm run prefix\" ",
+    "scss": "node-sass  --watch src/style -o src/style",
+    "prefix": "postcss src/style/style.css  --use autoprefixer -d src/style"
+  }
+}
