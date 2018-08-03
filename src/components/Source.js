@@ -1,5 +1,4 @@
 import React from 'react';
-import {Link} from 'react-router-dom';
 import SourceHeadlines from './SourceHeadlines';
 import Scroll from 'react-scroll';
 import PropTypes from 'prop-types';

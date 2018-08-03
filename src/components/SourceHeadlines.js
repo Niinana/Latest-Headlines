@@ -56,12 +56,14 @@ class SourceHeadlines extends React.Component {
             {
               this.props.getTitle(this.props.headlines[0].source)
             }
-          <div className="close">
-            <Link to='/' style={(this.state.progress<100)? {color:"#000"}:{color:"#1CBF7B"}}> &times; </Link> 
-          </div>         
+            <div className="close">
+              <Link to='/' style={(this.state.progress<100)? {color:"#000"}:{color:"#1CBF7B"}}> &times; </Link> 
+            </div>         
           <Line percent={this.state.progress} strokeWidth="0.3" strokeColor={(this.state.progress<100)?"#000":"#1CBF7B"} />      
         </div>
-        {this.props.headlines.map((h, i) => <Headline key={i} headline={h}/>)}  
+        <div className="headlines">
+        {this.props.headlines.map((h, i) => <Headline key={i} headline={h}/>)}
+        </div>  
       </div>
     )
 

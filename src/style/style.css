@@ -137,10 +137,10 @@ a :hover * {
 
 .source-headlines .top-bar h1 {
   margin: 35px 0px;
-  font-size: 1.8rem; }
+  font-size: 3rem; }
 
 .source-headlines .top-bar img {
-  height: 55px;
+  height: 75px;
   margin: 30px 0px 25px 0px; }
 
 .source-headlines .top-bar svg {
@@ -157,8 +157,33 @@ a :hover * {
   font-weight: bold; }
 
 .source-headlines .top-bar > *:not(svg) {
-  padding-left: 4%;
-  padding-right: 4%; }
+  padding-left: 5%;
+  padding-right: 5%; }
+
+.source-headlines .headline a div {
+  width: 50%;
+  display: grid;
+  margin-bottom: 35px; }
+
+.source-headlines .headline a div h2 {
+  order: 1;
+  font-size: 1.5rem; }
+
+.source-headlines .headline a div .source-date {
+  width: 100%;
+  order: 3;
+  margin-bottom: 10px; }
+
+.source-headlines .headline a div .source-date p, .source-headlines .headline a div .source-date span {
+  margin-top: 0; }
+
+.source-headlines .headline a div .hl-img {
+  width: 100%;
+  height: 50vh;
+  order: 4; }
+
+.source-headlines .headline a div .desc {
+  order: 2; }
 
 /* HEADLINE */
 .headline h2 {
