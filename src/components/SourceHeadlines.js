@@ -44,20 +44,9 @@ class SourceHeadlines extends React.Component {
         document.removeEventListener('scroll', this.handleScroll)
       }
 
-      getTitle = () => {
-
-        try {
-          let image = require(`../images/source-logos/${this.props.headlines[0].source.id}.png`);
-          return <img src={image} alt={this.props.headlines[0].source.id} />
-        }
-        catch (err) {
-          return <h1>{this.props.headlines[0].source.name}</h1>
-        }
-      }
 
 
-      
-      
+
 
   render() {
 
@@ -65,7 +54,7 @@ class SourceHeadlines extends React.Component {
       <div className="source-headlines" ref={this.headlines} >
           <div className="top-bar"> 
             {
-              this.getTitle()
+              this.props.getTitle(this.props.headlines[0].source)
             }
           <div className="close">
             <Link to='/' style={(this.state.progress<100)? {color:"#000"}:{color:"#1CBF7B"}}> &times; </Link> 

@@ -21,7 +21,7 @@ class App extends React.Component {
           if(a.publishedAt < b.publishedAt) return 1;
           return -1;
         })    
-        return latest.slice(0, 8);
+        return latest.slice(0, 9);
       }
 
   render() {
@@ -30,7 +30,7 @@ class App extends React.Component {
 
                 <LatestHeadlines headlines={this.getLatest()}/>
                 <div className="all-sources">
-                    <h1>All Sources</h1>
+                    <h1 className="subtitle">All Sources &#11835;</h1>
                     {Object.keys(this.props.all).map(key => <Source key={key} headlines={this.props.all[key]} open={(this.props.match.params.source && this.props.match.params.source===this.props.all[key][0].source.id)} history={this.props.history}/>      )}  
                 </div>
             

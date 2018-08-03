@@ -4,13 +4,28 @@
 
 $green: #1CBF7B;
 
+$body-font: 'Lora', serif;
+$header-font: 'Lobster Two', cursive;
+
 
 /* GENERAL */
 
+html {
+    font-size: 20px;
+}
+
 body{
     margin: 2% 8%;
-    font-family: 'Lora', serif;
+    font-family: $body-font;
+    font-size: 1rem;
+    line-height: 1;
 }
+
+h2{
+    font-size:1.5rem;
+    line-height: 1.1;
+}
+
 a{
     color: #000;
     text-decoration: none;
@@ -26,8 +41,8 @@ a{
 .main .header{
     text-align: center;
     h1{
-        font-family: 'Lobster Two', cursive;
-        font-size:40px;
+        font-family: $header-font;
+        font-size:2.8rem;
     }
     img{
         width: 150px;
@@ -55,6 +70,7 @@ a{
         width: 100%;
         background-size: cover;
         background-position: center;
+        margin-top: 10px;
     }
     p.desc{
         display: none;
@@ -75,6 +91,7 @@ a{
 } 
 
 .latest .section-3{
+    margin-top: 70px;
     grid-column: span 2;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
@@ -111,11 +128,37 @@ a{
     margin-top: 70px;
 }
 
-.all-sources h1{
-    font-family: 'Lobster Two', cursive;
-    font-size: 30px;
-    margin-bottom: 55px;
+.all-sources h1.subtitle{
+    font-family: $header-font;
+    font-size: 2rem;
+    margin-bottom: 50px;
 }
+
+.all-sources .source {
+    button{
+        width: 50%;
+        background-color: #000;
+        margin-bottom:35px;    
+        align-content: center;
+        cursor: pointer;
+        color: #fff;
+        padding: 35px;
+        border: none;
+        font-size: 1rem;
+        img{
+            filter:invert(100%);
+            max-width: 100%;
+            height: 50px;
+        }
+        h1{
+            margin: 5px auto;
+        }
+    }
+    button:hover{
+        background-color: $green;
+    }
+}
+
 
 /* SOURCE HEADLINES */
 
@@ -123,10 +166,15 @@ a{
     position:fixed;
     z-index: 999;
     top:0;
+    left:0;
     background: #fff;
-    width: 84%;
+    width: 100%;
     display: grid;
     grid-template-columns: 1fr 1fr;
+    h1{
+        margin: 35px 0px;
+        font-size: 1.8rem;
+    }
     img{
         height: 55px;
         margin: 30px 0px 25px 0px;
@@ -140,17 +188,22 @@ a{
         height: 100%;
         align-content: center;
         a{
-            font-size: 45px;
+            font-size: 2.25rem;
             font-weight: bold;
         }
     }
+}
+
+.source-headlines .top-bar>*:not(svg){
+    padding-left: 4%;
+    padding-right: 4%;
 }
 
 
 /* HEADLINE */
 
 .headline h2{
-    margin: 20px 0 10px 0;
+    margin: 20px 0 0 0;
 }
 
 .headline .hl-img{
@@ -166,6 +219,7 @@ a{
     }
     .source{
         font-weight: bold;
+        color:$green;
     }
     .date{
         justify-self: end;

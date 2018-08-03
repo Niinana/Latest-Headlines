@@ -15,10 +15,10 @@ class LatestHeadlines extends React.Component {
             <Headline key='0' headline={this.props.headlines[0]}/>
             </div>
             <div className="section-2">
-                {this.props.headlines.slice(1,5).map((headline, i) => <Headline key={i} headline={headline}/>)}
+                {this.props.headlines.slice(1,6).map((headline, i) => <Headline key={i} headline={headline}/>)}
             </div>
             <div className="section-3">
-                {this.props.headlines.slice(5,8).map((headline, i) => <Headline key={i} headline={headline}/>)}
+                {this.props.headlines.slice(6,9).map((headline, i) => <Headline key={i} headline={headline}/>)}
             </div>
 
         </div>

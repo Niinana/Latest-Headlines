@@ -20,15 +20,31 @@ class Source extends React.Component {
     Scroll.animateScroll.scrollTo(scrollPosition);
   }
 
+  
+  getTitle = (source) => {
+
+    try {
+      let image = require(`../images/source-logos/${source.id}.png`);
+      return <img src={image} alt={source.id} />
+    }
+    catch (err) {
+      return <h1>{source.name}</h1>
+    }
+  }
+
+
+
 
 
   render() {
     return(
       <div className="source"   ref={this.choser}>
         {(this.props.open)? 
-        <SourceHeadlines headlines={this.props.headlines} history={this.props.history}/>
+        <SourceHeadlines headlines={this.props.headlines} history={this.props.history} getTitle={this.getTitle}/>
         :
-        <Link to={`/source/${this.props.headlines[0].source.id}`}> {this.props.headlines[0].source.name} </Link>}
+        <div className="open-source">
+          <button onClick={()=>this.props.history.push(`/source/${this.props.headlines[0].source.id}`)}>{this.getTitle(this.props.headlines[0].source)}</button>
+        </div>}
       </div>
     )
   }
