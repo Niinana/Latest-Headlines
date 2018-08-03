@@ -11,7 +11,7 @@ body {
   line-height: 1; }
 
 h2 {
-  font-size: 1.5rem;
+  font-size: 1.3rem;
   line-height: 1.1; }
 
 a {
@@ -45,6 +45,9 @@ a :hover * {
   display: grid;
   grid-gap: 35px;
   grid-template-columns: 2fr 1fr; }
+
+.latest .section-1 h2 {
+  font-size: 1.5rem; }
 
 .latest .section-1 .hl-img {
   height: 50vh;
