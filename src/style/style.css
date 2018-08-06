@@ -215,3 +215,15 @@ a :hover * {
 .footer a {
   color: #1CBF7B;
   font-weight: bold; }
+
+@media only screen and (max-width: 1200px) {
+  html {
+    font-size: 18px; } }
+
+@media only screen and (max-width: 850px) {
+  html {
+    font-size: 16px; } }
+
+@media only screen and (max-width: 420px) {
+  html {
+    font-size: 14px; } }
