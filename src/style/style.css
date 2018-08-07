@@ -207,6 +207,14 @@ a :hover * {
 .headline .source-date .date {
   justify-self: end; }
 
+/* SEARCH */
+.search-top-fixed {
+  position: fixed;
+  top: 0;
+  background-color: #fff;
+  z-index: 999;
+  width: 100%; }
+
 /* FOOTER */
 .footer {
   margin-top: 70px;

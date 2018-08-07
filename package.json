@@ -22,10 +22,11 @@
   },
   "scripts": {
     "start": "react-scripts start",
+    "watch": "concurrently \"npm run start\" \"npm run scss\"  ",
+    "prebuild": "npm run prefix", 
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
-    "watch": "concurrently \"npm run start\" \"npm run scss\" \"npm run prefix\" ",
     "scss": "node-sass  --watch src/style -o src/style",
     "prefix": "postcss src/style/style.css  --use autoprefixer -d src/style"
   }
