@@ -21,7 +21,7 @@ class Search extends React.Component {
         
     }
 
-    handleClickOutside = evt => { this.props.setSearch(false, '') }
+    handleClickOutside = evt => { this.props.setSearch(false, ''); this.searchInput.current.value = "";}
 
   render() {
     return(
