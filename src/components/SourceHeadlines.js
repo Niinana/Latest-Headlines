@@ -4,6 +4,7 @@ import {Link} from 'react-router-dom';
 import Scroll from 'react-scroll';
 import Headline from './Headline';
 import PropTypes from 'prop-types';
+import onClickOutside from "react-onclickoutside";
 
 class SourceHeadlines extends React.Component {
 
@@ -22,11 +23,12 @@ class SourceHeadlines extends React.Component {
         const postTop=this.headlines.current.getBoundingClientRect().top;
         const postHeight=this.headlines.current.getBoundingClientRect().height;
         const progress = ((((window.innerHeight-postTop)/postHeight)*100)<=100)?((window.innerHeight-postTop)/postHeight)*100 : 100;
+      
         this.setState({progress});
 
         let rect = this.headlines.current.getBoundingClientRect();
         this.setState({top: rect.top, bottom: rect.bottom})
-        if(this.state.top > window.innerHeight || this.state.bottom < 70 ) this.props.history.push('/');
+        if(this.state.top > window.innerHeight || this.state.bottom < 70 ) {(this.props.search)?this.props.setSearch(false, '') : this.props.history.push('/')};
       }
     
     
@@ -45,7 +47,7 @@ class SourceHeadlines extends React.Component {
       }
 
 
-
+      handleClickOutside = evt => { this.props.history.push('/') }
 
 
   render() {
@@ -53,11 +55,12 @@ class SourceHeadlines extends React.Component {
     return(
       <div className="source-headlines" ref={this.headlines} >
           <div className="top-bar"> 
-            {
-              this.props.getTitle(this.props.headlines[0].source)
+            { (!this.props.search) ?
+              this.props.getTitle(this.props.headlines[0].source) :
+              <div className="search-placeholder"></div>
             }
             <div className="close">
-              <Link to='/' style={(this.state.progress<100)? {color:"#000"}:{color:"#1CBF7B"}}> &times; </Link> 
+              <Link to='/' style={(this.state.progress<100)? {color:"#000"}:{color:"#1CBF7B"}} onClick={()=>{(this.props.search)?this.props.setSearch(false, ''):null}}> &times; </Link> 
             </div>         
           <Line percent={this.state.progress} strokeWidth="0.3" strokeColor={(this.state.progress<100)?"#000":"#1CBF7B"} />      
         </div>
@@ -71,6 +74,6 @@ class SourceHeadlines extends React.Component {
 
 }
 
-export default SourceHeadlines;
+export default onClickOutside(SourceHeadlines);
 
 

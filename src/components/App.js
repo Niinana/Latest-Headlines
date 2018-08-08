@@ -2,7 +2,8 @@ import React from 'react';
 import Source from './Source';
 import LatestHeadlines from './LatestHeadlines';
 import PropTypes from 'prop-types';
-import SearchResults from './SearchResults';
+import SourceHeadlines from './SourceHeadlines';
+import Search from './Search';
 
 
 
@@ -21,14 +22,11 @@ class App extends React.Component {
         match: PropTypes.object
     }
 
-    searchInput = React.createRef();
-    
-    search = (event) => {
-        event.preventDefault();
-        const query = this.searchInput.current.value.trim().toLowerCase();
-        this.setState({search:{open:true, query}});
-        this.searchInput.current.value = "";    
-      }
+
+
+    setSearch = (open, query) => {
+        this.setState({search:{open, query}});
+    }
 
 
     getLatest = () => {
@@ -52,31 +50,53 @@ class App extends React.Component {
                 return bool;
             })
         ); 
-        return [].concat(...results);
+        return  [].concat(...results);
+    }
+
+    noResults = () => {
+        
+        
     }
 
   render() {
     return(
             <div className="App">
 
-                <LatestHeadlines headlines={this.getLatest()}/>
+            <LatestHeadlines headlines={this.getLatest()}/>
+
+            <Search search={this.state.search.open} getResults={this.getResults} setSearch={this.setSearch} history={this.props.history}/>
+               {/* <div className="search">
+                    <div className={(this.state.search.open && this.getResults().length>0)?"search-top-fixed":"search-top"}>
+                    <form onSubmit={this.search}>
+                        
+                        <button type="submit"> Search <i className="fa fa-search"></i> </button>
+                        <input ref={this.searchInput} type="text" required />
+                        
+                    </form>
+                    </div>
+                    {(this.state.search.open)? 
+                    
+                        (
+                          ( (this.getResults().length >= 1)?
+                            <SourceHeadlines headlines={this.getResults()} history={this.props.history} search={this.state.search.open} setSearch={this.setSearch}/>
+                            :
+                             <h3>Sorry, there are no headlines matching your query</h3>
+                          )      
+
+                        )
+                        :
+                        <React.Fragment/>
+
+                }
+                </div>
+                */}
+
+                
                 <div className="all-sources">
                     <h1 className="subtitle">All Sources &#11835;</h1>
                     {Object.keys(this.props.all).map(key => <Source key={key} headlines={this.props.all[key]} open={(this.props.match.params.source && this.props.match.params.source===this.props.all[key][0].source.id)} history={this.props.history}/>      )}  
                 </div>
-                <div className="search">
-                    <div className={(this.state.search.open)?"search-top-fixed":"search-top"}>
-                        <form onSubmit={this.search}>
-                            <input ref={this.searchInput} type="text" required placeholder="Search"/>
-                            <button type="submit"> <i className="fa fa-search"></i> </button>
-                        </form>
-                    </div>
-                    {(this.state.search.open)?
-                    <SearchResults headlines={this.getResults()} />
-                    :
-                    <React.Fragment/>
-                }
-                </div>
+
                 
             </div>
         );
