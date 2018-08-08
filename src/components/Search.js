@@ -6,7 +6,10 @@ import onClickOutside from "react-onclickoutside";
 class Search extends React.Component {
 
   static propTypes = {
-
+    search: PropTypes.bool,
+    setSearch: PropTypes.func,
+    getResults: PropTypes.func,
+    history: PropTypes.object
   }
 
   searchInput = React.createRef();
