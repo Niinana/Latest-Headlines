@@ -45,11 +45,11 @@ class Main extends React.Component {
   render() {
  return(
         <div className="main">
-          <div className="header">
+          <header>
             <img src={require("../images/logo.png")} alt="top-headlines-from-around-the-world" />
             <h1 className="main-title">Latest Headlines From Around The World</h1>
             <hr/><hr/>
-          </div>
+          </header>
           
           {(this.state.bbc[1])?
           (
@@ -64,9 +64,9 @@ class Main extends React.Component {
                 loading={this.state.loading} 
                 size={20}/>
           )}   
-          <div className="footer">
+          <footer>
             <p>Thank you <a href="https://newsapi.org/">newsapi.org</a></p>
-          </div>   
+          </footer>   
         </div>
       );
   }

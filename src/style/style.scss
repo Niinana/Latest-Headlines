@@ -43,7 +43,7 @@ button:hover{
 
 /* MAIN */
 
-.main .header{
+.main header{
     text-align: center;
     h1{
         font-family: $header-font;
@@ -330,12 +330,12 @@ button:hover{
 
 /* FOOTER */
 
-.footer{
+footer{
     margin-top: 70px;
     text-align: right;
 }
 
-.footer a{
+footer a{
     color: $green;
     font-weight: bold;
 }
